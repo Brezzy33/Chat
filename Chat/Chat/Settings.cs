@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Chat
 {
@@ -19,6 +13,22 @@ namespace Chat
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (ipTextBox.Text != "" && portTextBox.Text !="")
+            {
+                try
+                {
+                    DirectoryInfo data = new DirectoryInfo("Client_info");
+                    data.Create();
+                    var sw = new StreamWriter(@"Client_info/data_info.txt");
+                    sw.WriteLine(ipTextBox.Text + ":" + portTextBox.Text);
+                    sw.Close();
+                    Application.Restart();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error!"+ex.Message);
+                }
+            }
             this.Close();
         }
     }
