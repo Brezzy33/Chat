@@ -33,10 +33,10 @@ namespace Chat
                 var sr = new StreamReader(@"Client_info/data_info.txt");
                 string buffer = sr.ReadToEnd();
                 sr.Close();
-                String[] connect_info = buffer.Split(':');
+                string[] connect_info = buffer.Split(':');
                 ip = IPAddress.Parse(connect_info[1]);
                 label4.ForeColor = Color.Green;
-                label4.Text = "IP Сервера: " + connect_info[0] + "Порта сервера: " + connect_info[1];
+                label4.Text = "IP Сервера: " + connect_info[0] + "  Порта сервера: " + connect_info[1];
             }
             catch
             {
