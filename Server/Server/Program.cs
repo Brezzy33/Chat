@@ -14,7 +14,7 @@ namespace Server
             //Получение имени пк.
             string host = System.Net.Dns.GetHostName();
             //Получения ip-адреса.
-            System.Net.IPAddress ip = System.Net.Dns.GetHostEntry(host).AddressList[0];
+            string ip = System.Net.Dns.GetHostEntry(host).AddressList[1].ToString();
             Console.WriteLine("Ip adress " + ip.ToString());
             Console.WriteLine("Введите номер порта: ");
             Port = Convert.ToInt32(Console.ReadLine());
