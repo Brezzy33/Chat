@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net.Sockets;
 using System.IO;
@@ -16,8 +11,8 @@ namespace Chat
 {
     public partial class Form1 : Form
     {
-        //Создаем переменные для Ip, порта и потока.
-        static public Socket Client;
+        ///Создаем переменные для Ip, порта и потока.
+        static public Socket Client; 
         private IPAddress ip = null;
         private int port = 0;
         private Thread th;
@@ -47,6 +42,10 @@ namespace Chat
             }
         }
 
+        /// <summary>
+        /// Отправка сообщения
+        /// </summary>
+        /// <param name="message">Сообщение</param>
         void SendMessage(string message)
         {
             if (message != "" && message != " ")
@@ -57,6 +56,9 @@ namespace Chat
             }
         }
 
+        /// <summary>
+        /// Получение сообщения
+        /// </summary>
         void ReceveMessage()
         {
             byte[] buffer = new byte[1024];
@@ -91,9 +93,14 @@ namespace Chat
             msgTextBox.Clear();
         }
 
+        /// <summary>
+        /// Вход в чат
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void joinBtn_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text!=""&&textBox1.Text!=" ")
+            if (textBox1.Text!="" && textBox1.Text!=" ")
             {
                 msgTextBox.Enabled = true;
                 sndBtn.Enabled = true;
